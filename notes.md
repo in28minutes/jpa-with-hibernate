@@ -73,6 +73,8 @@
 # Notes
 
 ## Hibernate Mapping
+
+```
 <hibernate-mapping>
    <class name="Person" table="person">
       <id name="id" type="int" column="id">
@@ -83,6 +85,7 @@
       <property name="role" column="role " type="integer"/>
    </class>
 </hibernate-mapping>
+```
 
 ## JPQL
 
