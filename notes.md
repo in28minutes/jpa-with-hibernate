@@ -87,8 +87,6 @@
 </hibernate-mapping>
 ```
 
-## JPQL
-
 ## Entity Manager
 - detach method
 - clear method
@@ -97,9 +95,15 @@
 ## Play with Annotations
 - @Table : Indicates table name.
 - @Column : Defining Constraints on Columns.
-- @Transient : Column will not be persisted.
 - @NamedQueries Indicates list of named queries.
 - @NamedQuery Indicates a Query using static name.
+- @CreationTimestamp 
+- @UpdateTimestamp
+- @Transient : Column will not be persisted.
+- @PostLoad
+
+## Basics of JPQL
+- Discuss the basics here
 ```
 @NamedQueries({
     @NamedQuery(name="name1",
@@ -108,13 +112,16 @@
                 query="Query2"),
 })
 ```
-- @CreationTimestamp 
-- @UpdateTimestamp
+- We can discuss the stuff needing Join after discussing relationships
 
 ## Native Queries
 - Database specific feature
 
 ## Relationships
+- Three types of relationships
+- JPQL queries with Joins
+  - basic_empty_courses
+  - basic_courses_with_min_three_students
 
 ## Inheritance
 - best performance - single table strategy
@@ -140,6 +147,16 @@
 - Use Pagination
 - @Immutable - zero dirty checks!
 
+## Advanced JPQL
+- basic_courses_order_by
+- join
+- left_outer_join
+- cross_join
+
+## Advanced Criterial Query
+- join
+- left_outer_join
+
 ## Hibernate Tips
 - @Where
 - @SQLDelete
@@ -155,7 +172,6 @@
 
 ## Spring Data JPA
 - Spring Data REST
-
 
 ## Complete Code Example
 
