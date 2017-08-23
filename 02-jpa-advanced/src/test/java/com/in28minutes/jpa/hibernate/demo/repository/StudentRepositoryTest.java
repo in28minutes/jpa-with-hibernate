@@ -27,16 +27,16 @@ public class StudentRepositoryTest {
 	EntityManager em;
 
 	//Session & Session Factory
+
+	
 	//EntityManager & Persistence Context
 	//Transaction
 	
 	@Test
-	@Transactional
 	public void someTest() {
-		//Database Operation 1 - Retrieve student
-		//Database Operation 2 - Retrieve passport
-		//Database Operation 3 - update passport
+		repository.someOperationToUnderstandPersistenceContext();
 	}
+
 
 	@Test
 	@Transactional
