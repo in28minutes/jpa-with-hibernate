@@ -40,7 +40,6 @@ public class CourseRepositoryTest {
 	@Test
 	@DirtiesContext
 	public void save_basic() {
-
 		// get a course
 		Course course = repository.findById(10001L);
 		assertEquals("JPA in 50 Steps", course.getName());
@@ -59,5 +58,5 @@ public class CourseRepositoryTest {
 	public void playWithEntityManager() {
 		repository.playWithEntityManager();
 	}
-
+	
 }

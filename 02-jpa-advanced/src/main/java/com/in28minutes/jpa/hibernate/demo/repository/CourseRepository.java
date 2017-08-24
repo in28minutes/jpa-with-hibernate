@@ -1,5 +1,7 @@
 package com.in28minutes.jpa.hibernate.demo.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.slf4j.Logger;
@@ -50,7 +52,7 @@ public class CourseRepository {
 		
 	}
 
-	public void addReviewsForCourse() {
+	public void addHardcodedReviewsForCourse() {
 		//get the course 10003
 		Course course = findById(10003L);
 		logger.info("course.getReviews() -> {}", course.getReviews());
@@ -69,5 +71,17 @@ public class CourseRepository {
 		//save it to the database
 		em.persist(review1);
 		em.persist(review2);
+	}
+	
+	public void addReviewsForCourse(Long courseId, List<Review> reviews) {		
+		Course course = findById(courseId);
+		logger.info("course.getReviews() -> {}", course.getReviews());
+		for(Review review:reviews)
+		{			
+			//setting the relationship
+			course.addReview(review);
+			review.setCourse(course);
+			em.persist(review);
+		}
 	}
 }
