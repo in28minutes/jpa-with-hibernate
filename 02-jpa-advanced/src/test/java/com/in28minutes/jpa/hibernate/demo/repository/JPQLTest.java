@@ -52,4 +52,28 @@ public class JPQLTest {
 		// [Course[Web Services in 100 Steps], Course[Spring Boot in 100 Steps]]
 	}
 
+	@Test
+	public void jpql_courses_without_students() {
+		TypedQuery<Course> query = em.createQuery("Select c from Course c where c.students is empty", Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info("Results -> {}", resultList);
+		// [Course[Spring in 50 Steps]]
+	}
+
+	
+	@Test
+	public void jpql_courses_with_atleast_2_students() {
+		TypedQuery<Course> query = em.createQuery("Select c from Course c where size(c.students) >= 2", Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info("Results -> {}", resultList);
+		//[Course[JPA in 50 Steps]]
+	}
+
+	@Test
+	public void jpql_courses_ordered_by_students() {
+		TypedQuery<Course> query = em.createQuery("Select c from Course c order by size(c.students) desc", Course.class);
+		List<Course> resultList = query.getResultList();
+		logger.info("Results -> {}", resultList);
+	}
+
 }
