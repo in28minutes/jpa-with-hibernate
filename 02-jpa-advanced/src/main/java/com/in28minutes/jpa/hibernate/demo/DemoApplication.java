@@ -27,7 +27,9 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... arg0) throws Exception {
-		studentRepository.saveStudentWithPassport();
+		//studentRepository.saveStudentWithPassport();
 		//repository.playWithEntityManager();
+		courseRepository.addReviewsForCourse();
+		
 	}	
 }
