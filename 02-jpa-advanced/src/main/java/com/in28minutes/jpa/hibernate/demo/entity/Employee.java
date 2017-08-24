@@ -1,11 +1,13 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
+//@Entity
+//@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Employee {
 
 	@Id
