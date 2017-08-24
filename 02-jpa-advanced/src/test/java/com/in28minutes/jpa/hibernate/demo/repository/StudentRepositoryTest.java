@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
+import com.in28minutes.jpa.hibernate.demo.entity.Passport;
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
 
 @RunWith(SpringRunner.class)
@@ -22,27 +23,33 @@ public class StudentRepositoryTest {
 
 	@Autowired
 	StudentRepository repository;
-	
+
 	@Autowired
 	EntityManager em;
 
-	//Session & Session Factory
+	// Session & Session Factory
 
-	
-	//EntityManager & Persistence Context
-	//Transaction
-	
+	// EntityManager & Persistence Context
+	// Transaction
+
 	@Test
 	public void someTest() {
 		repository.someOperationToUnderstandPersistenceContext();
 	}
-
 
 	@Test
 	@Transactional
 	public void retrieveStudentAndPassportDetails() {
 		Student student = em.find(Student.class, 20001L);
 		logger.info("student -> {}", student);
-		logger.info("passport -> {}",student.getPassport());
+		logger.info("passport -> {}", student.getPassport());
+	}
+	
+	@Test
+	@Transactional
+	public void retrievePassportAndAssociatedStudent() {
+		Passport passport = em.find(Passport.class, 40001L);
+		logger.info("passport -> {}", passport);
+		logger.info("student -> {}", passport.getStudent());
 	}
 }
