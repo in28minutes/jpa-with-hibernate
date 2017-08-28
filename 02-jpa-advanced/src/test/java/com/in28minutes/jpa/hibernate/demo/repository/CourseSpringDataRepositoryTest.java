@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -61,9 +62,22 @@ public class CourseSpringDataRepositoryTest {
 	@Test
 	public void pagination() {
 		PageRequest pageRequest = PageRequest.of(0, 3);
-		
 		Page<Course> firstPage = repository.findAll(pageRequest);
-		logger.info("First Page -> {} ", firstPage);
+		logger.info("First Page -> {} ", firstPage.getContent());
+		
+		Pageable secondPageable = firstPage.nextPageable();
+		Page<Course> secondPage = repository.findAll(secondPageable);
+		logger.info("Second Page -> {} ", secondPage.getContent());
+	}
+	
+	@Test
+	public void findUsingName() {
+		logger.info("FindByName -> {} ", repository.findByName("JPA in 50 Steps"));
+	}
+
+	@Test
+	public void findUsingStudentsName() {
+		logger.info("findUsingStudentsName -> {} ", repository.findByName("Ranga"));
 	}
 
 }
