@@ -185,7 +185,7 @@ void someMethodWithChange() {
 - Transactions have importance even within read-only context - like specifying a database isolation-level. We strongly recommend that all database operations occur within the scope of some transaction.
 
 ## Performance Tuning
-- Check Stats in atleast one environment
+- Zero Performance Tuning without Statistics. Check Stats in atleast one environment
 - Do not use JPA/Hibernate for Database intensive Batch Operations - Use Stored Procedures  
 - Add the right indexes on the database - Execution Plan
 - Use Appropriate Caching

@@ -3,7 +3,11 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.util.List;
+
+import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
+import javax.persistence.Subgraph;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Review;
+import com.in28minutes.jpa.hibernate.demo.entity.Student;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
@@ -84,9 +89,33 @@ public class CourseRepositoryTest {
 	@Transactional
 	@DirtiesContext
 	public void performance() {
-		for (int i = 0; i < 20; i++)
-			em.persist(new Course("Something" + i));
-		em.flush();
+		//for (int i = 0; i < 20; i++)
+			//em.persist(new Course("Something" + i));
+		//em.flush();
+		
+		//EntityGraph graph = em.getEntityGraph("graph.CourseAndStudents");
+		
+		EntityGraph<Course> graph = em.createEntityGraph(Course.class);
+	    Subgraph<List<Student>> bookSubGraph = graph.addSubgraph("students");
+	    
+	    List<Course> courses = em.createQuery("Select c from Course c", Course.class)
+	        .setHint("javax.persistence.loadgraph", graph)
+	        .getResultList();
+	    for (Course course : courses) {
+	      System.out.println(course + " " + course.getStudents());
+	    }
+	}
+
+	@Test
+	@Transactional
+	@DirtiesContext
+	public void performance_without_hint() {	    
+	    List<Course> courses = em.createQuery("Select c from Course c", Course.class)
+	        //.setHint("javax.persistence.loadgraph", graph)
+	        .getResultList();
+	    for (Course course : courses) {
+	      System.out.println(course + " " + course.getStudents());
+	    }
 	}
 
 }
