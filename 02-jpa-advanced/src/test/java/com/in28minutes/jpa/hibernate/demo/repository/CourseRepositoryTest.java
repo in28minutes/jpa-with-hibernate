@@ -27,10 +27,9 @@ public class CourseRepositoryTest {
 
 	@Autowired
 	CourseRepository repository;
-	
+
 	@Autowired
 	EntityManager em;
-	
 
 	@Test
 	public void findById_basic() {
@@ -66,27 +65,28 @@ public class CourseRepositoryTest {
 	public void playWithEntityManager() {
 		repository.playWithEntityManager();
 	}
-	
+
 	@Test
 	@Transactional
 	public void retrieveReviewsForCourse() {
 		Course course = repository.findById(10001L);
-		logger.info("{}",course.getReviews());
+		logger.info("{}", course.getReviews());
 	}
 
 	@Test
 	@Transactional
 	public void retrieveCourseForReview() {
 		Review review = em.find(Review.class, 50001L);
-		logger.info("{}",review.getCourse());
+		logger.info("{}", review.getCourse());
+	}
+
+	@Test
+	@Transactional
+	@DirtiesContext
+	public void performance() {
+		for (int i = 0; i < 20; i++)
+			em.persist(new Course("Something" + i));
+		em.flush();
 	}
 
 }
-
-
-
-
-
-
-
-

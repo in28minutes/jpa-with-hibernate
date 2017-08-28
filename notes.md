@@ -1,3 +1,7 @@
+- jpa with hibernate 1 
+  - 38:28 We will talk about transactions later! Thinking if we need to create a video explaining transactions and other stuff at this point.
+  - 
+
 # Introduction
 - Master JPA & Hibernate with Spring Boot - Preview
 - Master JPA & Hibernate with Spring Boot - Course Overview
@@ -72,6 +76,42 @@
 
 # Notes
 
+## Notes while Recording
+
+- Do Read Only methods need a transaction?
+   - Entities - User, Comment
+```
+@Transactional
+List<Comment> someReadOnlyMethod() {
+  
+  User user = em.find(User.class, 1L);
+
+  List<Comment> comments = user.getComments();//
+
+  return comments;
+}
+```
+- Why do we need @Transactional in Unit Tests some times? 
+   - Unit Test -> Repository -> EntityManager
+   - Unit Test -> EntityManager
+- When does Hibernate fire queries down to database?
+```
+@Transactional
+void someMethodWithChange() {
+   
+    //Create Objects
+  em.persist(user1);
+  em.persist(user2);
+  
+  em.flush();
+  
+  //Change user1
+  //Change user2
+}
+//all changes are saved down to the database!
+
+```
+
 ## Hibernate Mapping
 
 ```
@@ -119,15 +159,25 @@
 
 ## Relationships
 - Three types of relationships
-- JPQL queries with Joins
-  - basic_empty_courses
-  - basic_courses_with_min_three_students
 
 ## Inheritance
 - best performance - single table strategy
 - best data integrity - joined 
 
+- JPQL queries with Joins
+  - basic_empty_courses
+  - basic_courses_with_min_three_students
+
 ## Criteria API
+
+```
+    // 1. Use Criteria Builder to create a Criteria Query returning the
+    // expected result object
+    // 2. Define roots for tables which are involved in the query
+    // 3. Define Predicates etc using Criteria Builder
+    // 4. Add Predicates etc to the Criteria Query
+    // 5. Build the TypedQuery using the entity manager and criteria query
+```
 
 ## Transaction Management
 - Spring vs JPA @Transactional
@@ -144,8 +194,9 @@
 - Avoid N+1
   - Entity Graph & Named Entity Graphs & Dynamic Entity Graphs
   - Join Fetch Clause
-- Use Pagination
+- Use Pagination & Batch Updates
 - @Immutable - zero dirty checks!
+- Read only transactions
 
 ## Advanced JPQL
 - basic_courses_order_by
