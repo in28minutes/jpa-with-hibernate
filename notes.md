@@ -184,20 +184,6 @@ void someMethodWithChange() {
 - Isolation Levels
 - Transactions have importance even within read-only context - like specifying a database isolation-level. We strongly recommend that all database operations occur within the scope of some transaction.
 
-## Performance Tuning
-- Zero Performance Tuning without Statistics. Check Stats in atleast one environment
-- Do not use JPA/Hibernate for Database intensive Batch Operations - Use Stored Procedures  
-- Add the right indexes on the database - Execution Plan
-- Use Appropriate Caching
-- Eager vs Lazy Fetch - Use Lazy fetching mostly
-  - Remember that all mapping *ToOne (@ManyToOne and @OneToOne) are EAGER by default.
-- Avoid N+1
-  - Entity Graph & Named Entity Graphs & Dynamic Entity Graphs
-  - Join Fetch Clause
-- Use Pagination & Batch Updates
-- @Immutable - zero dirty checks!
-- Read only transactions
-
 ## Advanced JPQL
 - basic_courses_order_by
 - join
@@ -208,21 +194,42 @@ void someMethodWithChange() {
 - join
 - left_outer_join
 
-## Hibernate Tips
-- @Where
-- @SQLDelete
-- Embedded
-- Enumerations
-- Be cautious about toString
-- Be cautious about Eager fetching on both sides of a relationship
-- When do you use JPA? SQL Database + Static Domain Model + Mostly CRUD + Mostly Simple Queries/Mappings and Updates with few Stored Procedures
+## Spring Data JPA
+- Spring Data REST
 
 # Caching
 - First Level Cache Demo
 - Second Level Cache Demo
 
-## Spring Data JPA
-- Spring Data REST
+## Hibernate Tips
+- Implementing Soft Deletes - @Where and @SQLDelete
+- Embedded Entities
+- Using Enumerations With JPA
+- Be cautious about toString
+- Be cautious about Eager fetching on both sides of a relationship
+- When do you use JPA? 
+    - SQL Database + Static Domain Model + Mostly CRUD + Mostly Simple Queries/Mappings and Updates with few Stored Procedures
+
+## Performance Tuning
+- Zero Performance Tuning without Statistics. Check Stats in atleast one environment.
+- Do not use JPA/Hibernate for Database intensive Batch Operations - Use Stored Procedures  
+- Add the right indexes on the database - Execution Plan
+- Use Appropriate Caching
+  - Be careful about the size of First Level Cache
+- Eager vs Lazy Fetch - Use Lazy fetching mostly
+  - Remember that all mapping *ToOne (@ManyToOne and @OneToOne) are EAGER by default.
+- Avoid N+1
+  - Entity Graph & Named Entity Graphs & Dynamic Entity Graphs
+  - Join Fetch Clause
+- Use Pagination & Batch Updates
+
+```
+query.setFirstResult(0);
+query.setMaxResults(10);
+```
+- @Immutable - zero dirty checks!
+- Read only transactions
+
 
 ## Complete Code Example
 
