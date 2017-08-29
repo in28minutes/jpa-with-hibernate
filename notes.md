@@ -56,7 +56,99 @@
 - Step 5 : Important annotations
 
 # JPA/Hibernate in Depth
+- TODO
+- Step 01 - Create a JPA Project with H2 and Spring Boot
+- Step 02 - Create JPA Entity Course
+- Step 03 - Create findById using JPA Entity Manager
+- Step 04 - Configuring application.properties to enable H2 console and additional logging
+- Step 05 - Writing Unit Test for findById method
+- Step 06 - Writing a deleteByID method to delete an Entity
+- Step 07 - Writing Unit Test for deleteById method
+- Step 08 - Writing a save method to update and insert an Entity
+- Step 09 - Writing Unit Test for save method
+- Step 10 - Quick Review and Debugging Tips
+- Step 11 - Playing with Entity Manager
+- Step 12 - Entity Manager Methods - clear and detach
+- Step 13 - Entity Manager Methods - refresh
+- Step 14 - A Quick Review of Entity Manager
+- Step 15 - JPQL - Basics
+- Step 16 - JPA and Hibernate Annotations - @Table
+- Step 17 - JPA and Hibernate Annotations - @Column
+- Step 18 - JPA and Hibernate Annotations - @UpdateTimestamp and @CreationTimestamp
+- Step 19 - JPA and Hibernate Annotations - @NamedQuery and @NamedQueries
+- Step 20 - Native Queries - Basics
+- Step 21 - Entities and Relationships - An overview
+- Step 22 - Defining Entities - Student, Passport and Review
+- Step 23 - Introduction to One to One Relationship
+- Step 24 - OneToOne Mapping - Insert Student with Passport
+- Step 25 - OneToOne Mapping - Retrieving Student with Passport and Eager Fetch
+- Step 26 - OneToOne Mapping - Lazy Fetch
+- Step 27 - Session vs Transaction
+- Step 28 - OneToOne Mapping - Bidirectional Relationship - Part 1
+- Step 29 - OneToOne Mapping - Bidirectional Relationship - Part 2
+- Step 30 - ManyToOne Mapping - Designing the database
+- Step 31 - ManyToOne Mapping - Retrieving and inserting Reviews for Course
+- Step 32 - ManyToOne Mapping - Generalizing Insert Reviews
+- Step 33 - ManyToOne Mapping - Wrapping up
+- Step 34 - ManyToMany Mapping - Table Design
+- Step 35 - ManyToMany Mapping - Adding Annotations on Entities
+- Step 36 - ManyToMany Mapping - Fixing two join tables problem
+- Step 37 - ManyToMany Mapping - Customizing the Join Table
+- Step 38 - ManyToMany Mapping - Insert Data and Write Join Query
+- Step 39 - ManyToMany Mapping - Retrieve Data using JPA Relationships
+- Step 40 - ManyToMany Mapping - Insert Student and Course
+- Step 41 - Relationships between JPA Entities - A summary
+- Step 42 - Introduction to Inheritance Hierarchies and Mappings
+- Step 43 - JPA Inheritance Hierarchies and Mappings - Setting up entities
+- Step 44 - JPA Inheritance Hierarchies and Mappings - Setting up a Repository
+- Step 45 - JPA Inheritance Hierarchies and Mappings - Single Table
+- Step 46 - JPA Inheritance Hierarchies and Mappings - Table Per Class
+- Step 47 - JPA Inheritance Hierarchies and Mappings - Joined
+- Step 48 - JPA Inheritance Hierarchies and Mappings - Mapped Super Class
+- Step 49 - JPA Inheritance Hierarchies and Mappings - How to Choose?
+- Step 50 - JPQL - Courses without Students
+- Step 51 - JPQL - Courses with atleast 2 Students and order by
+- Step 52 - JPQL - Courses like 100 Steps
+- Step 53 - JPQL - Using Joins
+- Step 54 - Criteria Query - Retrieving all courses
+- Step 55 - Criteria Query - Courses like 100 Steps
+- Step 56 - Criteria Query - Courses without Students
+- Step 57 - Criteria Query - Using Joins
+- Step 58 - Introduction to Transaction Management
+- Step 59 - Transaction Management - ACID Properties
+- Step 60 - Understanding Dirty, Phanthom and Non Repeatable Reads
+- Step 61 - Understand 4 Isolation Levels
+- Step 62 - Choosing between Isolation Levels
+- Step 63 - Implementing Transaction Management - 3 Things to Decide
+- Step 64 - Introduction to Spring Data JPA
+- Step 65 - Testing the Spring Data JPA Repository with findById.
+- Step 66 - Spring Data JPA Repository - CRUD Methosd
+- Step 67 - Sorting using Spring Data JPA Repository
+- Step 68 - Pagination using Spring Data JPA Repository 
+- Step 69 - Custom Queries using Spring Data JPA Repository 
+- Step 70 - Spring Data REST
+- Step 71 - Introduction to Caching
+- Step 72 - Hibernate and JPA Caching - First Level Cache
+- Step 73 - Hibernate and JPA Caching - Basics of Second Level Cache with EhCache
+- Step 74 - Hibernate and JPA Caching - Second Level Cache Part 2
+- Step 75 - Hibernate Tips - Hibernate Soft Deletes - @SQLDelete and @Where
+- Step 76 - Hibernate Soft Deletes - Part 2
+- Step 77 - JPA Entity Life Cycle Methods
+- Step 78 - Using Embedded and Embeddable with JPA
+- Step 79 - Using Enums with JPA
+- Step 80 - JPA Tip - Be cautious with toString method implementations
+- Step 81 - JPA Tip - When do you use JPA?
+- Step 82 - Performance Tuning - Measure before Tuning
+- Step 83 - Performance Tuning - Indexes
+- Step 84 - Performance Tuning - Use Appropriate Caching
+- Step 85 - Performance Tuning - Eager vs Lazy Fetch
+- Step 86 - Performance Tuning - Avoid N+1 Problems
 
+TO Decide
+- Step zzz - When does Hibernate send updates to the database?
+- Step zzz - When do we need @Transactional in an Unit Test?
+- Step zzz - Do read only methods need a transaction?
+- Step zzz - Why do we use @DirtiesContext in an Unit Test?
 
 # Conclusion
 - Master JPA & Hibernate with Spring Boot - Congratulations on Completing the Course
@@ -197,7 +289,7 @@ void someMethodWithChange() {
 ## Spring Data JPA
 - Spring Data REST
 
-# Caching
+## Caching
 - First Level Cache Demo
 - Second Level Cache Demo
 

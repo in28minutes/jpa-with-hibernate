@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,13 +24,14 @@ public class Student {
 	@Column(nullable = false)
 	private String name;
 
+	@Embedded
+	private Address address;
+
 	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
 
 	@ManyToMany
-	@JoinTable(name = "STUDENT_COURSE", 
-	joinColumns = @JoinColumn(name = "STUDENT_ID"), 
-	inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = @JoinColumn(name = "STUDENT_ID"), inverseJoinColumns = @JoinColumn(name = "COURSE_ID"))
 	private List<Course> courses = new ArrayList<>();
 
 	protected Student() {
@@ -37,6 +39,14 @@ public class Student {
 
 	public Student(String name) {
 		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public String getName() {
