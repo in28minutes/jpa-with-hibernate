@@ -13,9 +13,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,8 +31,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 		@NamedQuery(name = "query_get_100_Step_courses", 
 		query = "Select  c  From Course c where name like '%100 Steps'") })
 @Cacheable
+@SQLDelete(sql="update course set is_deleted=true where id=?")
+@Where(clause="is_deleted = false")
 public class Course {
 
+	private static Logger LOGGER = LoggerFactory.getLogger(Course.class);
+	
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -47,6 +56,14 @@ public class Course {
 
 	@CreationTimestamp
 	private LocalDateTime createdDate;
+	
+	private boolean isDeleted;
+	
+	@PreRemove
+	private void preRemove(){
+		LOGGER.info("Setting isDeleted to True");
+		this.isDeleted = true;
+	}
 
 	protected Course() {
 	}
