@@ -9,12 +9,11 @@
 - Master JPA & Hibernate with Spring Boot - Installing Basic Tools
 
 # JPA Introduction
-- TODO - What is JPA?
+- What is JPA?
    - A quick 5 minute introduction
 
 # Spring Boot in 10 Steps
-- TODO
-- Step 0 : Spring Boot in 10 Steps - Section Introduction
+- Introduction to the Section
 - Step 1 : Introduction to Spring Boot - Goals and Important Features
 - Step 2 : Developing Spring Applications before Spring Boot
 - Step 3 : Using Spring Initializr to create a Spring Boot Application
@@ -27,7 +26,7 @@
 - Step 10 : Spring Boot Developer Tools
 
 # Journey from JDBC To JPA
-- TODO
+- Introduction to the Section
 - Step 01 - Setting up a project with JDBC, JPA, H2 and Web Dependencies
 - Step 02 - Launching up H2 Console
 - Step 03 - Creating a Database Table in H2
@@ -48,7 +47,7 @@
 - Step 18 - Implementing findAll using JPQL Named Query
 
 # JUnit in 5 Steps
-- TODO
+- Introduction to the Section
 - Step 1 : What is JUnit and Unit Testing?
 - Step 2 : First JUnit Project and Green Bar
 - Step 3 : First Code and First Unit Test
@@ -56,7 +55,7 @@
 - Step 5 : Important annotations
 
 # JPA/Hibernate in Depth
-- TODO
+- Introduction to the Section
 - Step 01 - Create a JPA Project with H2 and Spring Boot
 - Step 02 - Create JPA Entity Course
 - Step 03 - Create findById using JPA Entity Manager

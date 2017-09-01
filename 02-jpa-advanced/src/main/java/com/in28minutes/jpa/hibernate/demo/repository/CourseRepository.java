@@ -21,7 +21,7 @@ public class CourseRepository {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
-	EntityManager em;
+	private EntityManager em;
 
 	public Course findById(Long id) {
 		Course course = em.find(Course.class, id);
