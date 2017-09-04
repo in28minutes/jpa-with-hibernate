@@ -1,7 +1,3 @@
-- jpa with hibernate 1 
-  - 38:28 We will talk about transactions later! Thinking if we need to create a video explaining transactions and other stuff at this point.
-  - 
-
 # Introduction
 - Master JPA & Hibernate with Spring Boot - Preview
 - Master JPA & Hibernate with Spring Boot - Course Overview
@@ -148,6 +144,10 @@ TO Decide
 - Step zzz - When do we need @Transactional in an Unit Test?
 - Step zzz - Do read only methods need a transaction?
 - Step zzz - Why do we use @DirtiesContext in an Unit Test?
+- Introduction to JPA
+- How to connect to a different database with Spring Boot?
+- Approach to design great applications with JPA?
+- Good Practices for developing JPA Applications
 
 # Conclusion
 - Master JPA & Hibernate with Spring Boot - Congratulations on Completing the Course
