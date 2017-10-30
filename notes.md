@@ -1,15 +1,14 @@
 # Introduction
-- Master JPA & Hibernate with Spring Boot - Preview
-- Master JPA & Hibernate with Spring Boot - Course Overview
-- Master JPA & Hibernate with Spring Boot - Git Repository
-- Master JPA & Hibernate with Spring Boot - Installing Basic Tools
+- 0001 - Master Hibernate and JPA with Spring Boot - Preview
+- 0002 - Master Hibernate and JPA with Spring Boot - Course Overview
+- 0003 - Master Hibernate and JPA with Spring Boot - Git Repository
+- 0004 - Master Hibernate and JPA with Spring Boot - Installing Basic Tools
 
 # JPA Introduction
-- What is JPA?
-   - A quick 5 minute introduction
+- 0005 - Quick introduction to JPA
 
 # Spring Boot in 10 Steps
-- Introduction to the Section
+- 0000 - Section Introduction - Introduction to Spring Boot in 10 Steps
 - Step 1 : Introduction to Spring Boot - Goals and Important Features
 - Step 2 : Developing Spring Applications before Spring Boot
 - Step 3 : Using Spring Initializr to create a Spring Boot Application
@@ -22,7 +21,7 @@
 - Step 10 : Spring Boot Developer Tools
 
 # Journey from JDBC To JPA
-- Introduction to the Section
+- 0000 - Section Introduction - Introduction to Journey from JDBC To JPA
 - Step 01 - Setting up a project with JDBC, JPA, H2 and Web Dependencies
 - Step 02 - Launching up H2 Console
 - Step 03 - Creating a Database Table in H2
@@ -43,7 +42,7 @@
 - Step 18 - Implementing findAll using JPQL Named Query
 
 # JUnit in 5 Steps
-- Introduction to the Section
+- 0000 - Section Introduction - Introduction to JUnit in 5 Steps
 - Step 1 : What is JUnit and Unit Testing?
 - Step 2 : First JUnit Project and Green Bar
 - Step 3 : First Code and First Unit Test
@@ -51,11 +50,11 @@
 - Step 5 : Important annotations
 
 # JPA/Hibernate in Depth
-- Introduction to the Section
+- 0000 - Section Introduction - Introduction to JPA and Hibernate in Depth
 - Step 01 - Create a JPA Project with H2 and Spring Boot
 - Step 02 - Create JPA Entity Course
 - Step 03 - Create findById using JPA Entity Manager
-- Step 04 - Configuring application.properties to enable H2 console and additional logging
+- Step 04 - Configuring application.properties to enable H2 console and logging
 - Step 05 - Writing Unit Test for findById method
 - Step 06 - Writing a deleteByID method to delete an Entity
 - Step 07 - Writing Unit Test for deleteById method
@@ -78,10 +77,11 @@
 - Step 24 - OneToOne Mapping - Insert Student with Passport
 - Step 25 - OneToOne Mapping - Retrieving Student with Passport and Eager Fetch
 - Step 26 - OneToOne Mapping - Lazy Fetch
-- Step 27 - Session vs Transaction
+- Step 27 - Transaction, Entity Manager and Persistence Context
 - Step 28 - OneToOne Mapping - Bidirectional Relationship - Part 1
 - Step 29 - OneToOne Mapping - Bidirectional Relationship - Part 2
 - Step 30 - ManyToOne Mapping - Designing the database
+- Step 30 - 02 - ManyToOne Mapping - Implementing the Mapping *****
 - Step 31 - ManyToOne Mapping - Retrieving and inserting Reviews for Course
 - Step 32 - ManyToOne Mapping - Generalizing Insert Reviews
 - Step 33 - ManyToOne Mapping - Wrapping up
@@ -117,7 +117,7 @@
 - Step 63 - Implementing Transaction Management - 3 Things to Decide
 - Step 64 - Introduction to Spring Data JPA
 - Step 65 - Testing the Spring Data JPA Repository with findById.
-- Step 66 - Spring Data JPA Repository - CRUD Methosd
+- Step 66 - Spring Data JPA Repository - CRUD Methods
 - Step 67 - Sorting using Spring Data JPA Repository
 - Step 68 - Pagination using Spring Data JPA Repository 
 - Step 69 - Custom Queries using Spring Data JPA Repository 
@@ -140,19 +140,19 @@
 - Step 86 - Performance Tuning - Avoid N+1 Problems
 
 TO Decide
-- Step zzz - When does Hibernate send updates to the database?
-- Step zzz - When do we need @Transactional in an Unit Test?
-- Step zzz - Do read only methods need a transaction?
-- Step zzz - Why do we use @DirtiesContext in an Unit Test?
-- Introduction to JPA
-- How to connect to a different database with Spring Boot?
-- Approach to design great applications with JPA?
-- Good Practices for developing JPA Applications
+- FAQ 1 - When does Hibernate send updates to the database?
+- FAQ 2 - When do we need @Transactional in an Unit Test?
+- FAQ 3 - Do read only methods need a transaction?
+- FAQ 4 - Why do we use @DirtiesContext in an Unit Test?
+- FAQ 5 - How to connect to a different database with Spring Boot?
+- FAQ 6 - Approach to design great applications with JPA?
+- FAQ 7 - Good Practices for developing JPA Applications
 
 # Conclusion
-- Master JPA & Hibernate with Spring Boot - Congratulations on Completing the Course
+- 9999 - Master Hibernate & JPA with Spring Boot - Congratulations on Completing the Course
 
 ## Appendix - Spring Framework in 10 Steps
+- 0000 - Section Introduction - Introduction to Spring Framework in 10 Steps
 - Step 1 - Setting up a Spring Project using htttp://start.spring.io
 - Step 2 - Understanding Tight Coupling using the Binary Search Algorithm Example
 - Step 3 - Making the Binary Search Algorithm Example Loosely Coupled
