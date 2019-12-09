@@ -1,4 +1,7 @@
 # Master JPA and Hibernate with Spring Boot
+
+[![Image](https://www.springboottutorial.com/images/Course-Master-Hibernate-and-JPA-with-Spring-Boot-in-100-Steps.png "Master Hibernate and JPA with Spring Boot in 100 Steps")](https://www.udemy.com/course/hibernate-jpa-tutorial-for-beginners-in-100-steps/)
+
 Master JPA using Hibernate as the implementation. Learn the basics of JPA - entities, relationships, entity manager, annotations, JPQL and Criteria API. Take a step into the advanced world of JPA - caching, performance tuning(n + 1 queries), mapping inheritance hierarchies. Get a peek into the magic of Spring Data JPA & Spring Data Rest.
 
 ## Overview
@@ -253,41 +256,13 @@ values(20001,10003);
 - You are all Set
 - For help : use our installation guide - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
-## About in28Minutes
-- At in28Minutes, we ask ourselves one question everyday. How do we help you learn effectively - that is more quickly and retain more of what you have learnt?
-- We use Problem-Solution based Step-By-Step Hands-on Approach With Practical, Real World Application Examples. 
-- Our success on Udemy and Youtube (2 Million Views & 12K Subscribers) speaks volumes about the success of our approach.
-- While our primary expertise is on Development, Design & Architecture Java & Related Frameworks (Spring, Struts, Hibernate) we are expanding into the front-end world (Bootstrap, JQuery, Angular JS). 
+### Troubleshooting
+- Refer our TroubleShooting Guide - https://github.com/in28minutes/in28minutes-initiatives/tree/master/The-in28Minutes-TroubleshootingGuide-And-FAQ
 
-### Our Beliefs
-- Best Courses are interactive and fun.
-- Foundations for building high quality applications are best laid down while learning.
+## Youtube Playlists - 500+ Videos
 
-### Our Approach
-- Problem Solution based Step by Step Hands-on Learning
-- Practical, Real World Application Examples.
-- We use 80-20 Rule. We discuss 20% things used 80% of time in depth. We touch upon other things briefly equipping you with enough knowledge to find out more on your own. 
-- We will be developing a demo application in the course, which could be reused in your projects, saving hours of your effort.
-- We love open source and therefore, All our code is open source too and available on Github.
+[Click here - 30+ Playlists with 500+ Videos on Spring, Spring Boot, REST, Microservices and the Cloud](https://www.youtube.com/user/rithustutorials/playlists?view=1&sort=lad&flow=list)
 
-### Other Courses
+## Keep Learning in28Minutes
 
-- [Check out all our courses with 100,000 Students](https://courses.in28minutes.com/courses)
-- [25 Videos and Articles for Beginners on Spring Boot](http://www.springboottutorial.com/spring-boot-tutorials-for-beginners)
-- Our Best Courses with 66,000 Students and 4,000 5-Star Ratings
-  * [Java Interview Guide : 200+ Interview Questions and Answers](https://www.udemy.com/course/java-interview-questions-and-answers/?couponCode=OCTOBER-2019)
-  * [First Web Application with Spring Boot](https://www.udemy.com/course/spring-boot-first-web-application/?couponCode=OCTOBER-2019)
-  * [Spring Boot Tutorial For Beginners](https://www.udemy.com/course/spring-boot-tutorial-for-beginners/?couponCode=OCTOBER-2019)
-  * [Mockito Tutorial : Learn mocking with 25 Junit Examples](https://www.udemy.com/course/mockito-tutorial-with-junit-examples/?couponCode=OCTOBER-2019)
-  * [Java EE Made Easy - Patterns, Architecture and Frameworks](https://www.udemy.com/course/java-ee-design-patterns-architecture-and-frameworks/?couponCode=OCTOBER-2019)
-  * [Spring MVC For Beginners : Build Java Web App in 25 Steps](https://www.udemy.com/course/spring-mvc-tutorial-for-beginners-step-by-step/?couponCode=OCTOBER-2019)
-  * [JSP Servlets For Beginners : Build Java Web App in 25 Steps](https://www.udemy.com/course/learn-java-servlets-and-jsp-web-application-in-25-steps/?couponCode=OCTOBER-2019)
-  * [Maven Tutorial - Manage Java Dependencies in 25 Steps](https://www.udemy.com/course/learn-maven-java-dependency-management-in-20-steps/?couponCode=OCTOBER-2019)
-  * [Java OOPS in 1 Hours](https://www.udemy.com/course/learn-object-oriented-programming-in-java/?couponCode=OCTOBER-2019)
-  * [C Puzzle for Interview](https://www.udemy.com/course/c-puzzles-for-beginners/?couponCode=OCTOBER-2019)
-  
-### Useful Links
-- [Our Website](http://www.in28minutes.com)
-- [Facebook](http://facebook.com/in28minutes)
-- [Twitter](http://twitter.com/in28minutes)
-- [Google Plus](https://plus.google.com/u/3/110861829188024231119)
+in28Minutes is creating amazing solutions for you to learn Spring Boot, Full Stack and the Cloud - Docker, Kubernetes, AWS, React, Angular etc. - [Check out all our courses here](https://github.com/in28minutes/learn)
