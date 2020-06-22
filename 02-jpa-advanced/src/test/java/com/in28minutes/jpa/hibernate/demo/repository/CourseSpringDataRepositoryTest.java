@@ -54,7 +54,7 @@ public class CourseSpringDataRepositoryTest {
 
 	@Test
 	public void sort() {
-		Sort sort = new Sort(Sort.Direction.ASC, "name");
+		Sort sort = Sort.by(Sort.Direction.ASC, "name");
 		logger.info("Sorted Courses -> {} ", repository.findAll(sort));
 		//Courses -> [Course[JPA in 50 Steps], Course[Spring in 50 Steps], Course[Spring Boot in 100 Steps]] 
 	}
