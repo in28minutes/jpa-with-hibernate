@@ -8,11 +8,11 @@ create table person
    primary key(id)
 );
 */
-
+/* Replace H2 sysdate() function(deprecated) with CURRENT_DATE() function */
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10001,  'Ranga', 'Hyderabad',sysdate());
+VALUES(10001,  'Ranga', 'Hyderabad',CURRENT_DATE());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10002,  'James', 'New York',sysdate());
+VALUES(10002,  'James', 'New York',CURRENT_DATE());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) 
-VALUES(10003,  'Pieter', 'Amsterdam',sysdate());
+VALUES(10003,  'Pieter', 'Amsterdam',CURRENT_DATE());
 

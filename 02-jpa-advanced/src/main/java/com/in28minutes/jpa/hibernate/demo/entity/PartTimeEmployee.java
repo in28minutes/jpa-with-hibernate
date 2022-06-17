@@ -1,8 +1,8 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
 import java.math.BigDecimal;
-
-import javax.persistence.Entity;
+// Change from javax to jakarta
+import jakarta.persistence.Entity;
 
 @Entity
 public class PartTimeEmployee extends Employee {

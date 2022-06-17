@@ -1,9 +1,10 @@
+/* Replace H2 sysdate() function(deprecated) with CURRENT_DATE() function */
+insert into course(id, name, created_date, last_updated_date,is_deleted)
+values(10001,'JPA in 50 Steps', CURRENT_DATE(), CURRENT_DATE(),false);
 insert into course(id, name, created_date, last_updated_date,is_deleted) 
-values(10001,'JPA in 50 Steps', sysdate(), sysdate(),false);
+values(10002,'Spring in 50 Steps', CURRENT_DATE(), CURRENT_DATE(),false);
 insert into course(id, name, created_date, last_updated_date,is_deleted) 
-values(10002,'Spring in 50 Steps', sysdate(), sysdate(),false);
-insert into course(id, name, created_date, last_updated_date,is_deleted) 
-values(10003,'Spring Boot in 100 Steps', sysdate(), sysdate(),false);
+values(10003,'Spring Boot in 100 Steps', CURRENT_DATE(), CURRENT_DATE(),false);
 
 
 insert into passport(id,number)

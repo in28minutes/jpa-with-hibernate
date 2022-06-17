@@ -2,7 +2,8 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+// Change from javax to jakarta
+import jakarta.persistence.EntityManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
