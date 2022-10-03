@@ -5,19 +5,19 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-M2</version> <!-- Changed from 2.4.4 -->
+		<version>3.0.0-M3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.in28minutes</groupId>
+	<groupId>com.in28minutes.spring</groupId>
 	<artifactId>learn-spring-framework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>learn-spring-framework</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>17</java.version> <!-- Changed from 11 -->
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -25,14 +25,10 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	
 	</dependencies>
 
 	<build>
@@ -43,7 +39,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<repositories>
 		<repository>
 			<id>spring-milestones</id>
@@ -54,7 +49,6 @@
 			</snapshots>
 		</repository>
 	</repositories>
-
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-milestones</id>
