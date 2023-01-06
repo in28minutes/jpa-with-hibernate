@@ -344,14 +344,14 @@ query.setMaxResults(10);
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.0.0.RELEASE</version>
+    <version>3.0.1</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <java.version>17</java.version>
   </properties>
 
   <dependencies>
@@ -398,8 +398,8 @@ query.setMaxResults(10);
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
+          <source>17</source>
+          <target>17</target>
           <compilerArguments>
             <processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
           </compilerArguments>
@@ -428,14 +428,6 @@ query.setMaxResults(10);
 
   <repositories>
     <repository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
       <id>spring-milestones</id>
       <name>Spring Milestones</name>
       <url>https://repo.spring.io/milestone</url>
@@ -444,16 +436,7 @@ query.setMaxResults(10);
       </snapshots>
     </repository>
   </repositories>
-
   <pluginRepositories>
-    <pluginRepository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
     <pluginRepository>
       <id>spring-milestones</id>
       <name>Spring Milestones</name>
@@ -461,10 +444,6 @@ query.setMaxResults(10);
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
-    </pluginRepository>
-    <pluginRepository>
-      <id>maven-annotation</id>
-      <url>http://maven-annotation-plugin.googlecode.com/svn/trunk/mavenrepo</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -505,10 +484,10 @@ public class CourseController {
 ```java
 package com.in28minutes.jpa.jpademo.embedded.entity;
 
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
 //@Embeddable
@@ -530,11 +509,11 @@ public class Name {
 
 package com.in28minutes.jpa.jpademo.embedded.entity;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Person {
@@ -555,12 +534,12 @@ public class Person {
 ```java
 package com.in28minutes.jpa.jpademo.inheritence.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.MappedSuperclass;
 
 //@MappedSuperclass
 @Entity
@@ -592,7 +571,7 @@ package com.in28minutes.jpa.jpademo.inheritence.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 public class FullTimeEmployee extends Employee {
@@ -615,7 +594,7 @@ package com.in28minutes.jpa.jpademo.inheritence.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 public class PartTimeEmployee extends Employee {
@@ -639,8 +618,8 @@ package com.in28minutes.jpa.jpademo.inheritence.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -712,16 +691,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedAttributeNode;
-import javax.persistence.NamedEntityGraph;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedAttributeNode;
+import jakarta.persistence.NamedEntityGraph;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -817,12 +796,12 @@ public class Course {
 ```java
 package com.in28minutes.jpa.jpademo.relationships.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Where;
 
@@ -882,11 +861,11 @@ public class Passport {
 ```java
 package com.in28minutes.jpa.jpademo.relationships.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -964,19 +943,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.MapKeyColumn;
-import javax.persistence.MapKeyEnumerated;
-import javax.persistence.OneToOne;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.MapKeyColumn;
+import jakarta.persistence.MapKeyEnumerated;
+import jakarta.persistence.OneToOne;
 
 import org.hibernate.annotations.SQLDelete;
 
@@ -1091,10 +1070,10 @@ package com.in28minutes.jpa.jpademo.relationships.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityGraph;
-import javax.persistence.EntityManager;
-import javax.persistence.Subgraph;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityGraph;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Subgraph;
+import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -1185,8 +1164,8 @@ public class CourseRepository {
 ```java
 package com.in28minutes.jpa.jpademo.relationships.repository;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -1222,8 +1201,8 @@ public class EntityManagerRepository {
 ```java
 package com.in28minutes.jpa.jpademo.relationships.repository;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -1256,7 +1235,7 @@ public class StudentRepository {
 ```java
 package com.in28minutes.jpa.jpademo.relationships.repository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -1314,27 +1293,29 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.entity.Course;
 import com.in28minutes.jpa.jpademo.relationships.entity.Course_;
 import com.in28minutes.jpa.jpademo.relationships.entity.Student;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class CriteriaQueryDemoApplicationTest {
 
   // @LocalServerPort
@@ -1446,16 +1427,18 @@ public class CriteriaQueryDemoApplicationTest {
 ```java
 package com.in28minutes.jpa.jpademo;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.repository.EntityManagerRepository;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class EntityManagerDemoApplicationTests {
 
   @Autowired
@@ -1476,20 +1459,21 @@ package com.in28minutes.jpa.jpademo;
 
 import java.math.BigDecimal;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.in28minutes.jpa.jpademo.inheritence.entity.FullTimeEmployee;
 import com.in28minutes.jpa.jpademo.inheritence.entity.PartTimeEmployee;
 import com.in28minutes.jpa.jpademo.inheritence.repository.EmployeeRepository;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class InheritanceDemoApplicationTest {
 
   // @LocalServerPort
@@ -1522,12 +1506,12 @@ import java.time.Month;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import org.junit.After;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.After;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.entity.Course;
 import com.in28minutes.jpa.jpademo.relationships.entity.Passport;
@@ -1538,8 +1522,10 @@ import com.in28minutes.jpa.jpademo.relationships.entity.StudentType;
 import com.in28minutes.jpa.jpademo.relationships.repository.CourseRepository;
 import com.in28minutes.jpa.jpademo.relationships.repository.StudentRepository;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class JpaDemoApplicationTests {
 
   // @LocalServerPort
@@ -1609,21 +1595,23 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.entity.Course;
 import com.in28minutes.jpa.jpademo.relationships.entity.Student;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class JPQLDemoApplicationTest {
 
   // @LocalServerPort
@@ -1742,22 +1730,24 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.entity.Course;
 import com.in28minutes.jpa.jpademo.relationships.entity.Student;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class NativeQueriesDemoApplicationTest {
 
   // @LocalServerPort
@@ -1906,15 +1896,17 @@ public class NativeQueriesDemoApplicationTest {
 ```java
 package com.in28minutes.jpa.jpademo;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.repository.CourseRepository;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class PerformanceDemoApplicationTest {
 
@@ -1940,19 +1932,21 @@ package com.in28minutes.jpa.jpademo;
 
 import static org.junit.Assert.assertNull;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.in28minutes.jpa.jpademo.relationships.entity.Passport;
 import com.in28minutes.jpa.jpademo.relationships.repository.TransactionManagementRepository;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest // (webEnvironment = WebEnvironment.RANDOM_PORT)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
+@SpringBootTest
 public class TransactionManagementDemoApplicationTests {
 
   @Autowired
