@@ -1,6 +1,6 @@
 package com.in28minutes.jpa.hibernate.demo.entity;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Address {

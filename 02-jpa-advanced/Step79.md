@@ -21,14 +21,16 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
+        <hibernate-jcache.version>6.1.6.Final</hibernate-jcache.version>
+        <ehcache.version>3.10.6</ehcache.version>
 	</properties>
 
 	<dependencies>
@@ -40,10 +42,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
-		</dependency>
+        <!-- extra for 2nd level cache https://northcoder.com/post/setting-up-hibernate-with-jcache-an/ -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jcache</artifactId>
+            <version>${hibernate-jcache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -73,42 +82,26 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 
 </project>
@@ -189,7 +182,7 @@ public class DemoApplication implements CommandLineRunner {
 ```java
 package com.in28minutes.jpa.hibernate.demo.entity;
 
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Address {
@@ -220,16 +213,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.PreRemove;
+import jakarta.persistence.Cacheable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PreRemove;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
@@ -334,10 +327,10 @@ public class Course {
 ```java
 package com.in28minutes.jpa.hibernate.demo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 //@Entity
@@ -385,7 +378,7 @@ package com.in28minutes.jpa.hibernate.demo.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 public class FullTimeEmployee extends Employee {
@@ -410,7 +403,7 @@ package com.in28minutes.jpa.hibernate.demo.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 public class PartTimeEmployee extends Employee {
@@ -434,12 +427,12 @@ public class PartTimeEmployee extends Employee {
 ```java
 package com.in28minutes.jpa.hibernate.demo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Passport {
@@ -494,12 +487,12 @@ public class Passport {
 ```java
 package com.in28minutes.jpa.hibernate.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -580,16 +573,16 @@ package com.in28minutes.jpa.hibernate.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -669,7 +662,7 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -800,7 +793,7 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -842,7 +835,7 @@ public class EmployeeRepository {
 ```java
 package com.in28minutes.jpa.hibernate.demo.repository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -961,11 +954,11 @@ spring.jpa.properties.hibernate.jdbc.batch_size=10
 #1. enable second level cache
 spring.jpa.properties.hibernate.cache.use_second_level_cache=true
 
-#2. specify the caching framework - EhCache
-spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
-
+#2. specify the caching framework - JCache
+# https://northcoder.com/post/setting-up-hibernate-with-jcache-an/
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.jcache.internal.JCacheRegionFactory
 #3. Only cache what I tell to cache.
-spring.jpa.properties.javax.persistence.sharedCache.mode=ENABLE_SELECTIVE
+spring.jpa.properties.jakarta.persistence.sharedCache.mode=ENABLE_SELECTIVE
 
 logging.level.net.sf.ehcache=debug
 
@@ -1021,12 +1014,14 @@ values(20001,10003);
 ```java
 package com.in28minutes.jpa.hibernate.demo;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class DemoApplicationTests {
 
@@ -1048,18 +1043,18 @@ import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
-import javax.persistence.EntityGraph;
-import javax.persistence.EntityManager;
-import javax.persistence.Subgraph;
+import jakarta.persistence.EntityGraph;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Subgraph;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
@@ -1067,7 +1062,9 @@ import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Review;
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class CourseRepositoryTest {
 
@@ -1157,7 +1154,7 @@ public class CourseRepositoryTest {
 	    Subgraph<List<Student>> bookSubGraph = graph.addSubgraph("students");
 	    
 	    List<Course> courses = em.createQuery("Select c from Course c", Course.class)
-	        .setHint("javax.persistence.loadgraph", graph)
+	        .setHint("jakarta.persistence.loadgraph", graph)
 	        .getResultList();
 	    for (Course course : courses) {
 	      System.out.println(course + " " + course.getStudents());
@@ -1169,7 +1166,7 @@ public class CourseRepositoryTest {
 	@DirtiesContext
 	public void performance_without_hint() {	    
 	    List<Course> courses = em.createQuery("Select c from Course c", Course.class)
-	        //.setHint("javax.persistence.loadgraph", graph)
+	        //.setHint("jakarta.persistence.loadgraph", graph)
 	        .getResultList();
 	    for (Course course : courses) {
 	      System.out.println(course + " " + course.getStudents());
@@ -1190,8 +1187,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Optional;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -1200,12 +1197,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class CourseSpringDataRepositoryTest {
 
@@ -1276,27 +1275,29 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.JoinType;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.JoinType;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class CriteriaQueryTest {
 
@@ -1450,23 +1451,25 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class JPQLTest {
 
@@ -1590,23 +1593,25 @@ package com.in28minutes.jpa.hibernate.demo.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
 import com.in28minutes.jpa.hibernate.demo.entity.Course;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class NativeQueriesTest {
 
@@ -1660,15 +1665,15 @@ public class NativeQueriesTest {
 ```java
 package com.in28minutes.jpa.hibernate.demo.repository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.in28minutes.jpa.hibernate.demo.DemoApplication;
@@ -1676,7 +1681,9 @@ import com.in28minutes.jpa.hibernate.demo.entity.Address;
 import com.in28minutes.jpa.hibernate.demo.entity.Passport;
 import com.in28minutes.jpa.hibernate.demo.entity.Student;
 
-@RunWith(SpringRunner.class)
+// replaced @RunWith with @ExtendWith
+// replaced SpringRunner.class with SpringExtension.class
+@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = DemoApplication.class)
 public class StudentRepositoryTest {
 

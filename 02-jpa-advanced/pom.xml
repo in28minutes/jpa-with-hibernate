@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.0-M2</version> <!-- Changed from 2.3.1.RELEASE -->
+		<version>3.0.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -23,6 +23,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>17</java.version> <!-- Changed from 1.8 -->
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<hibernate-jcache.version>6.1.6.Final</hibernate-jcache.version>
+		<ehcache.version>3.10.6</ehcache.version>
 	</properties>
 
 	<dependencies>
@@ -34,9 +36,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
+		<!-- extra for 2nd level cache https://northcoder.com/post/setting-up-hibernate-with-jcache-an/ -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
+			<artifactId>hibernate-jcache</artifactId>
+			<version>${hibernate-jcache.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

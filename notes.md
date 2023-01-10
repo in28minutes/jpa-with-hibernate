@@ -1270,8 +1270,9 @@ spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 #logging.level.org.hibernate.type=TRACE
 spring.jpa.properties.hibernate.cache.use_second_level_cache=true
-spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
-spring.jpa.properties.javax.persistence.sharedCache.mode=ENABLE_SELECTIVE
+# https://northcoder.com/post/setting-up-hibernate-with-jcache-an/
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.jcache.internal.JCacheRegionFactory
+spring.jpa.properties.jakarta.persistence.sharedCache.mode=ENABLE_SELECTIVE
 logging.level.net.sf.ehcache=debug
 ```
 ---
