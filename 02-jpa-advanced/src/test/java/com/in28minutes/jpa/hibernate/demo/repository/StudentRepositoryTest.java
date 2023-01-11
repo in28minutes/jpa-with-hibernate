@@ -1,6 +1,6 @@
 package com.in28minutes.jpa.hibernate.demo.repository;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
