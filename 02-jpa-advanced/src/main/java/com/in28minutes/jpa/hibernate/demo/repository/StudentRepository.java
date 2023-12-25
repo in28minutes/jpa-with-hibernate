@@ -1,6 +1,5 @@
 package com.in28minutes.jpa.hibernate.demo.repository;
 
-// Change from jakarta to jakarta
 import jakarta.persistence.EntityManager;
 
 import org.slf4j.Logger;
