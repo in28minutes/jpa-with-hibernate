@@ -1,7 +1,6 @@
 package com.in28minutes.database.databasedemo.jpa;
 
 import java.util.List;
-// Change from javax to jakarta
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;

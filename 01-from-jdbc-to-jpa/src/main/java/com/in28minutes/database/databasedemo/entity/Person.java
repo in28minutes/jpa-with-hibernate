@@ -1,7 +1,6 @@
 package com.in28minutes.database.databasedemo.entity;
 
 import java.util.Date;
-// Change from javax to jakarta
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

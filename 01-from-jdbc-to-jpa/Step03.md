@@ -28,14 +28,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.1</version> <!-- Changed from 3.0.0-M2 -->
+        <version>3.2.1</version> <!-- Changed from 3.0.0-M2 -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>17</java.version> <!-- Changed from 1.8 -->
+        <java.version>21</java.version> <!-- Changed from 1.8 -->
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
     </properties>
 

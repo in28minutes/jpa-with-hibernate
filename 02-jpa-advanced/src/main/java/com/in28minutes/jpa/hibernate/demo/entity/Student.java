@@ -3,7 +3,6 @@ package com.in28minutes.jpa.hibernate.demo.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-// Change from jakarta to jakarta
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
