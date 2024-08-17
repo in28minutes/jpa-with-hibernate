@@ -221,6 +221,9 @@ logging.level.org.hibernate.stat=debug
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
 logging.level.org.hibernate.type=trace
+
+spring.jpa.defer-datasource-initialization=true
+
 ```
 ---
 
