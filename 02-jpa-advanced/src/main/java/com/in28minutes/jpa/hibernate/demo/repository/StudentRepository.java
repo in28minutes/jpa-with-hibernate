@@ -42,7 +42,7 @@ public class StudentRepository {
 	}
 
 	public void saveStudentWithPassport() {
-		Passport passport = new Passport("Z123456");
+		Passport passport = new Passport(null, "Z123456", null);
 		em.persist(passport);
 
 		Student student = new Student("Mike");

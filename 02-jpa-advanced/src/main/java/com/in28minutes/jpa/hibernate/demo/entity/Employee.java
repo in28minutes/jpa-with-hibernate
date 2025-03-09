@@ -4,10 +4,16 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @MappedSuperclass
 //@Entity
 //@Inheritance(strategy=InheritanceType.JOINED)
+@Getter
+@Setter
+@AllArgsConstructor
 public abstract class Employee {
 
 	@Id
@@ -24,17 +30,6 @@ public abstract class Employee {
 		this.name = name;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Long getId() {
-		return id;
-	}
 
 	@Override
 	public String toString() {
