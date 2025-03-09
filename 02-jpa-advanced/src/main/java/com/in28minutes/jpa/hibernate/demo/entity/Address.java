@@ -4,7 +4,13 @@ import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Address {
+	
+	private String line1;
+	private String line2;
+	private String city;
+	
 	protected Address() {}
+	
 	
 	public Address(String line1, String line2, String city) {
 		super();
@@ -13,9 +19,7 @@ public class Address {
 		this.city = city;
 	}
 
-	private String line1;
-	private String line2;
-	private String city;
+	
 
 	
 }
