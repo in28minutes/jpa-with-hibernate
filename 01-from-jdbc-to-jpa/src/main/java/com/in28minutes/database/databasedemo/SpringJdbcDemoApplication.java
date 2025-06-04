@@ -11,7 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.in28minutes.database.databasedemo.entity.Person;
-import com.in28minutes.database.databasedemo.jdbc.PersonJdbcDao;
 
 //@SpringBootApplication
 public class SpringJdbcDemoApplication implements CommandLineRunner {
