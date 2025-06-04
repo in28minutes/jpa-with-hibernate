@@ -18,7 +18,7 @@ import com.in28minutes.jpa.hibernate.demo.entity.ReviewRating;
 @Transactional
 public class CourseRepository {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private EntityManager em;

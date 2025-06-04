@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.in28minutes.database.databasedemo.entity.Person;
 
 @Repository
-public class PersonJbdcDao {
+public class PersonJdbcDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -37,8 +37,9 @@ public class PersonJbdcDao {
 	}
 
 	public Person findById(int id) {
-		return jdbcTemplate.queryForObject("select * from person where id=?", new Object[] { id },
-				new BeanPropertyRowMapper<>(Person.class));
+		// return jdbcTemplate.queryForObject("select * from person where id=?", new Object[] { id },
+		//				new BeanPropertyRowMapper<>(Person.class)); //Deprecated
+		return jdbcTemplate.queryForObject("select * from person where id=?", new BeanPropertyRowMapper<>(Person.class), id);
 	}
 
 	public int deleteById(int id) {

@@ -15,7 +15,7 @@ import com.in28minutes.database.databasedemo.jpa.PersonJpaRepository;
 @SpringBootApplication
 public class JpaDemoApplication implements CommandLineRunner {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	PersonJpaRepository repository;

@@ -15,10 +15,7 @@ import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PreRemove;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.Where;
+import org.hibernate.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +31,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 		query = "Select  c  From Course c where name like '%100 Steps'") })
 @Cacheable
 @SQLDelete(sql="update course set is_deleted=true where id=?")
-@Where(clause="is_deleted = false")
+// @Where(clause="is_deleted = false") // Deprecated
+@SQLRestriction("status <> 'DELETED'")
 public class Course {
 
 	private static Logger LOGGER = LoggerFactory.getLogger(Course.class);
