@@ -72,7 +72,7 @@ JdbcTemplateAutoConfiguration.JdbcTemplateConfiguration#jdbcTemplate matched:
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.2</version>
+		<version>3.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 

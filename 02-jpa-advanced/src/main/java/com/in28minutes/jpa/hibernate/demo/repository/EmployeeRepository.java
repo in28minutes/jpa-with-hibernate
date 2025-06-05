@@ -21,18 +21,18 @@ public class EmployeeRepository {
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	EntityManager em;
+	EntityManager entityManager;
 
 	public void insert(Employee employee) {
-		em.persist(employee);
+		entityManager.persist(employee);
 	}
 
 	public List<PartTimeEmployee> retrieveAllPartTimeEmployees() {
-		return em.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
+		return entityManager.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
 	}
 
 	public List<FullTimeEmployee> retrieveAllFullTimeEmployees() {
-		return em.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
+		return entityManager.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
 	}
 
 }

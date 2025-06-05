@@ -82,8 +82,8 @@ public class StudentRepository {
 	}
 
 	public void insertStudentAndCourse(Student student, Course course){
-		//Student student = new Student("Jack");
-		//Course course = new Course("Microservices in 100 Steps");
+		// Student student = new Student("Jack");
+		// Course course = new Course("Microservices in 100 Steps");
 		student.addCourse(course);
 		course.addStudent(student);
 
