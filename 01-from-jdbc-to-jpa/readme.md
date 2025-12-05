@@ -72,14 +72,14 @@ JdbcTemplateAutoConfiguration.JdbcTemplateConfiguration#jdbcTemplate matched:
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.0</version>
+		<version>4.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>21</java.version>
+		<java.version>25</java.version>
 	</properties>
 
 	<dependencies>
@@ -118,28 +118,6 @@ JdbcTemplateAutoConfiguration.JdbcTemplateConfiguration#jdbcTemplate matched:
 			</plugin>
 		</plugins>
 	</build>
-
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
 
 </project>
 ```
@@ -296,6 +274,12 @@ public class PersonJbdcDao {
 ---
 
 ### /src/main/java/com/in28minutes/database/databasedemo/jpa/PersonJpaRepository.java
+
+> [!NOTE]
+
+- Spring integrates with Hibernate ORM 7.0 and JPA 3.2, offering compatibility with the latest persistence standards. 
+- Prior to these, `EntityManager` could be injected only by defining the `@PersistenceContext` annotation; 
+- However, now both `EntityManagerFactory` and its associated shared `EntityManager` can now be injected using `@Inject` or `@Autowired`, with support for qualifiers to select a specific persistence unit when multiple are configured.
 
 ```java
 package com.in28minutes.database.databasedemo.jpa;

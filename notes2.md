@@ -21,14 +21,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.0</version>
+    <version>4.0.0</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>21</java.version>
+    <java.version>25</java.version>
   </properties>
 
   <dependencies>
