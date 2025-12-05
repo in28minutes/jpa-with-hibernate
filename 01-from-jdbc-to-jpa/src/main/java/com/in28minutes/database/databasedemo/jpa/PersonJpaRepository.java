@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.in28minutes.database.databasedemo.entity.Person;
@@ -16,6 +17,7 @@ public class PersonJpaRepository {
 
 	// connect to the database
 	@PersistenceContext
+    // @Autowired, // Starting from Spring Boot 4, instead of @PersistenceContext, we can also use @Autowired annotation
 	EntityManager entityManager;
 
 	public List<Person> findAll() {
