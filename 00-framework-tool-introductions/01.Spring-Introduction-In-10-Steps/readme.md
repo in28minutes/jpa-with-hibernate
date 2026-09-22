@@ -7,7 +7,7 @@
 - Step 05 - Iteration 2 - Loose Coupling Level 1 - Interfaces
 - Step 06 - Exploring Loose Coupling with Interfaces - PacmanGame
 - Step 07 - Iteration 3 - Loose Coupling Level 2 - Spring Framework
-- Step 08 - Q1 - Spring Framework - Understanding whats happening in Background
+- Step 08 - Q1 - Spring Framework - Understanding what's happening in Background
 - Step 09 - Q2 - Spring Framework - Understanding Important Terminology
 - Step 10 - Q3 - Spring Framework - Does Spring Framework Add Value?
 - Step 11 - Q4 - Spring Framework - Running Super Contra
@@ -68,7 +68,7 @@ Consider marking one of the beans as @Primary, updating the consumer to accept m
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.1.0</version>
+		<version>4.1.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.in28minutes.spring</groupId>

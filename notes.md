@@ -344,7 +344,7 @@ query.setMaxResults(10);
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.1.0</version>
+    <version>4.1.1</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
